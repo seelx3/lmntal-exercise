@@ -1,0 +1,28 @@
+/*
+e.g.
+input:
+3
+1 2
+3 4
+5 6
+output:
+3
+7
+11
+*/
+
+main.
+main :- 
+  t=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  sem.
+
+sem, t(X) :- X > 0 |
+  a=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  b=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  t=X-1.
+
+a(X), b(Y) :- Z=X+Y | res(Z).
+
+res(X) :- 
+  io.print_line(io.stdout,string.from(X),io.free_port),
+  sem.

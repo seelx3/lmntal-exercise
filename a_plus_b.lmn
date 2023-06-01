@@ -1,0 +1,14 @@
+/*
+e.g.
+input:
+1 2
+output:
+3
+*/
+
+a=integer.of_str(io.read_token(io.stdin,io.free_port)).
+b=integer.of_str(io.read_token(io.stdin,io.free_port)).
+
+a(X), b(Y) :- res(X+Y).
+
+res(X) :- io.print_line(io.stdout,string.from(X),io.free_port).
