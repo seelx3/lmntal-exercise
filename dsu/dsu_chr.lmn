@@ -1,0 +1,19 @@
+%%% dsu
+make @@
+make(A) :- root(A).
+merge @@
+merge(A,B) :- find(A,X), find(B,Y), link(X,Y).
+
+findNode @@ 
+parent(A1,B) \ find(A2,X) :- A1=A2, int(B) | find(B,X).
+findRoot @@
+root(A1)     \ find(A2,X) :- A1=A2 | X=A1.
+
+linkEq   @@
+link(A1,A2) :- A1=A2 | .
+link     @@
+link(A1,B1), root(A2), root(B2) :- A1=A2, B1=B2 | parent(B1,A1), root(A1).
+%%% dsu end
+
+make(0), make(1), make(2), make(3).
+merge(0,1), merge(2,3).

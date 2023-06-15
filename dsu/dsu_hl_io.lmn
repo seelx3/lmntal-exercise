@@ -1,0 +1,75 @@
+/* union find (disjoint set) */
+%%% init
+make(X) :- new($x), new($y) | rt($x),n(X,$y,$x).
+
+%%% merge
+merge(X1,X2) :- mg(check(X1,X2)).
+mg(isSame(rootis(X1),rootis(X2))) :-
+  X1==X2 |.
+mg(isSame(rootis(X1),rootis(X2)))  :-
+  X1\==X2 | link(X1,X2).
+link(X1,X2), n(Y1,!C1,!P1), n(Y2,!C2,!P2), rt(!L) :- 
+  X1==Y1, X2==Y2, !L==!P2 | n(X1,!C1,!P1), n(X2,!C2,!C1).
+
+%%% isSame
+check(X1,X2,L) :- int(X1), int(X2) | isSame(getroot(X1),getroot(X2),L).
+% tracing parent node
+n(X1,!C1,!P1), n(X2,!C2,!P2) \ getroot(X,L) :- 
+  X==X2, !C1==!P2, int(X1) | getroot(X1,L).
+rt(!C1), n(X2,!C2,!P2) \ getroot(X,L) :- 
+  X==X2, !C1==!P2 | rootis(X,L).
+/* end of union find */
+
+%%% main
+main.
+main :- 
+  n=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  q=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  sem_0.
+
+n(X), sem_0 :- X == 0 | sem_1.
+n(X) :- Y=X-1, Y >= 0 | n(Y), make(Y).
+
+q(X), sem_1 :- X > 0, Y=X-1 |
+  p=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  a=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  b=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  q(Y),
+  sem_2.
+
+% merge query
+sem_2, p(P), a(A), b(B) :- P==0 |
+  merge(A,B), sem_1.
+
+% check query
+sem_2, p(P), a(A), b(B) :- P==1 |
+  ck(check(A,B)), sem_3.
+sem_3, ck(isSame(rootis(X1),rootis(X2))) :- X1==X2 | 
+  io.print_line(io.stdout,"Yes",io.free_port), sem_1.
+sem_3, ck(isSame(rootis(X1),rootis(X2))) :- X1\=X2 | 
+  io.print_line(io.stdout,"No",io.free_port), sem_1.
+
+/*
+e.g.
+
+count of nodes: 8
+count of queries: 9
+0: merge, 1: check
+
+input:
+8 9
+0 1 2
+0 3 2
+1 1 3
+1 1 4
+0 2 4
+1 4 1
+0 4 2
+0 0 0
+1 0 0
+output:
+Yes
+No
+Yes
+Yes
+*/

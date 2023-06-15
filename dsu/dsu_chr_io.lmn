@@ -1,6 +1,5 @@
-% https://atcoder.jp/contests/atc001/tasks/unionfind_a
 
-%dsu
+%%% dsu
 sem_dsu.
 merge@@
 merge(A,B), sem_dsu :- find(A,X), find(B,Y), link(X,Y).
@@ -15,7 +14,7 @@ link(A1,A2) :- A1=A2 | sem_dsu.
 link2@@
 link(A1,B1), root(A2), root(B2) :- A1=A2, B1=B2 | 
   parent(B1,A1), root(A1), sem_dsu.
-%dsu end
+%%% dsu end
 
 main.
 main :- 
@@ -44,23 +43,3 @@ sem_3, check(X, Y) :- X==Y |
   io.print_line(io.stdout,"Yes",io.free_port), sem_1.
 sem_3, check(X, Y) :- X\=Y |
   io.print_line(io.stdout,"No",io.free_port), sem_1.
-
-/*
-e.g.
-input:
-8 9
-0 1 2
-0 3 2
-1 1 3
-1 1 4
-0 2 4
-1 4 1
-0 4 2
-0 0 0
-1 0 0
-output:
-Yes
-No
-Yes
-Yes
-*/
