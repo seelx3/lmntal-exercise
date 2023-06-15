@@ -1,4 +1,2 @@
-*
-!.gitignore
-!*.lmn
-!*.sh
+*.il
+output.txt
