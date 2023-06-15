@@ -1,0 +1,23 @@
+/* Shift only */
+
+main.
+main :- 
+  n=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  res(100),
+  cur(0),
+  l1.
+
+l1, n(N) :- N > 0, NN = N - 1 |
+  a=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  n(NN),
+  l2.
+l1, n(N), res(R) :- N =:= 0 |
+  io.print_line(io.stdout,string.from(R),io.free_port).
+
+l2, a(A), cur(C) :- 
+A mod 2 =:= 0, NC = C+1, NA = A/2 |
+  a(NA), cur(NC), l2.
+l2, a(A) :-  A mod 2 =\= 0 | l3.
+
+l3, res(R), cur(C) :- R > C | res(C), cur(0), l1.
+l3, res(R), cur(C) :- R =< C | res(R), cur(0), l1.

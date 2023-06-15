@@ -1,0 +1,22 @@
+/* Product
+output:
+  - "Even" if the product of two integers is even
+  - "Odd" else
+*/
+
+main.
+
+main :-
+  a=integer.of_str(io.read_token(io.stdin,I)),
+  b=integer.of_str(io.read_token(I,io.free_port)),
+  l1.
+
+l1, a(A), b(B) :-
+  X = A * B | res(X), l2.
+
+l2, res(X) :-
+  X mod 2 =:= 0 |
+  io.print_line(io.stdout,"Even",io.free_port).
+l2, res(X) :-
+  X mod 2 =\= 0 |
+  io.print_line(io.stdout,"Odd",io.free_port).
