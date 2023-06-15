@@ -1,0 +1,2 @@
+hoge.
+hoge :- new($h) | a($h), b($h).
