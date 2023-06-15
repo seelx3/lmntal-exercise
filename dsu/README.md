@@ -9,9 +9,10 @@ It supports the following operations.
 ## Files
 - `dsu_chr.lmn`, `dsu_chr_io.lmn` : CHR-like approach
 - `dsu_hl.lmn`, `dsu_hl_io.lmn` : dsu with hyper link
+- `dsu_mb.lmn`, `dsu_mb_io.lmn` : dsu with membrane
 
 ## Note
-- `dsu_chr_io.lmn` and `dsu_hl_io.lmn` are correspond to the following problems.
+- `*_io.lmn` are correspond to the following problems.
   - https://atcoder.jp/contests/atc001/tasks/unionfind_a
 
 ```
@@ -47,3 +48,6 @@ Yes
   
 - dsu_hl.lmn
 <image src="https://raw.githubusercontent.com/seelx3/lmntal-exercise/main/dsu/dsu_hl.png" width="50%">
+
+- dsu_mb.lmn
+<image src="https://raw.githubusercontent.com/seelx3/lmntal-exercise/main/dsu/dsu_mb.png" width="50%">

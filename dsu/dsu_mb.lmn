@@ -1,0 +1,7 @@
+make(Y) :- int(Y) | { n=Y }.
+
+merge(X1, Y1), { n=X2, $p[] }, { n=Y2, $q[] } :- 
+  X1==X2, Y1==Y2 | { n=X1, n=Y1, $p[], $q[] }.
+
+make(0), make(1), make(2), make(3).
+merge(0, 1), merge(2, 3).
