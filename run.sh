@@ -1,3 +1,8 @@
 slim --hl --use-builtin-rule $1 > output.txt;
-# output.txt の最後の行以外を出力
-cat output.txt | sed '$d';
+
+if [ "$2" = "--output-only" ]; then
+  cat output.txt | sed '$d';
+  exit 0;
+fi
+
+cat output.txt;
