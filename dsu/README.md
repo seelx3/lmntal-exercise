@@ -39,3 +39,11 @@ No
 Yes
 Yes
 ```
+
+## execution example
+
+- dsu_chr.lmn
+<image src="https://raw.githubusercontent.com/seelx3/lmntal-exercise/main/dsu/dsu_chr.png" width="50%"> 
+  
+- dsu_hl.lmn
+<image src="https://raw.githubusercontent.com/seelx3/lmntal-exercise/main/dsu/dsu_hl.png" width="50%">
