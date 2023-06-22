@@ -1,0 +1,28 @@
+% union by size
+
+/* union find (disjoint set) */
+%%% init
+make(X) :- new($x), new($y) | rt($x,1),n(X,$y,$x).
+
+%%% merge
+merge(X1,X2) :- mg(check(X1,X2)).
+mg(isSame(rootis(X1),rootis(X2))) :-
+  X1==X2 |.
+mg(isSame(rootis(X1),rootis(X2)))  :-
+  X1\==X2 | link(X1,X2).
+link(X1,X2), n(Y1,!C1,!P1), n(Y2,!C2,!P2), rt(!L1, SZ1), rt(!L2, SZ2) :- 
+  X1==Y1, X2==Y2, !L1==!P1, !L2==!P2, SZ1 >= SZ2, SZ=SZ1+SZ2 | n(X1,!C1,!P1), n(X2,!C2,!C1), rt(!P1,SZ).
+
+%%% isSame
+check(X1,X2,L) :- int(X1), int(X2) | isSame(getroot(X1),getroot(X2),L).
+% tracing parent node
+n(X1,!C1,!P1), n(X2,!C2,!P2) \ getroot(X,L) :- 
+  X==X2, !C1==!P2, int(X1) | getroot(X1,L).
+rt(!C1,SZ), n(X2,!C2,!P2) \ getroot(X,L) :- 
+  X==X2, !C1==!P2, int(SZ) | rootis(X,L).
+/* end of union find */
+
+% operations
+make(0),make(1),make(2),make(3).
+merge(0, 1).
+merge(2, 3).
