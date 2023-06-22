@@ -18,17 +18,17 @@ link(A1,B1), root(A2), root(B2) :- A1=A2, B1=B2 |
 
 main.
 main :- 
-  n=integer.of_str(io.read_token(io.stdin,io.free_port)),
-  q=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  n=integer.of_str(io.read_token(io.stdin,P0)),
+  q=integer.of_str(io.read_token(P0,io.free_port)),
   sem_0.
 
 n(X), sem_0 :- X == 0 | sem_1.
 n(X) :- Y=X-1, Y >= 0 | n(Y), root(Y).
 
 q(X), sem_1 :- X > 0, Y=X-1 |
-  p=integer.of_str(io.read_token(io.stdin,io.free_port)),
-  a=integer.of_str(io.read_token(io.stdin,io.free_port)),
-  b=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  p=integer.of_str(io.read_token(io.stdin,P0)),
+  a=integer.of_str(io.read_token(P0,P1)),
+  b=integer.of_str(io.read_token(P1,io.free_port)),
   q(Y),
   sem_2.
 
