@@ -1,3 +1,5 @@
+% routing path compression
+
 /* union find (disjoint set) */
 %%% init
 make(X) :- new($x), new($y) | rt($x),n(X,$y,$x).
@@ -16,10 +18,8 @@ check(X1,X2,L) :- int(X1), int(X2) | isSame(getroot(X1),getroot(X2),L).
 % tracing parent node
 getroot(X, L), n(X0, !C0, !P0), n(X2, !C2, !P2) \ n(X1, !C1, !P1) :-
   X==X2, !C1==!P2, !C0==!P1, new($x) | n(X1, $x, !P1), !P1><!C1.
-gr1 @@
 rt(!C0), n(X1, !C1, !P1), n(X2, !C2, !P2) \ getroot(X, L) :-
   int(X1), X==X2, !C1==!P2, !C0==!P1 | rootis(X1, L).
-gr2 @@
 rt(!C0), n(X1,!C1,!P1) \ getroot(X,L) :- 
   X==X1, !C0==!P1 | rootis(X,L).
 /* end of union find */

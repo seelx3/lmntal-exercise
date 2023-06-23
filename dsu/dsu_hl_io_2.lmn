@@ -1,5 +1,4 @@
-% TODO: 小さい木を大きい木にマージ
-% TODO: 経路圧縮
+% routing path compression
 
 /* union find (disjoint set) */
 %%% init
