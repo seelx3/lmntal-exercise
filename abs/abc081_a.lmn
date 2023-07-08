@@ -1,0 +1,14 @@
+/* Placing Marbles */
+
+main.
+
+main :-
+  s=integer.of_str(io.read_token(io.stdin,io.free_port)),
+  res(0),
+  l1.
+
+l1, s(X), res(R) :-
+  X =\= 0, NR = R + X mod 10, NX = X / 10 |
+  l1 ,s(NX), res(NR).
+l1, s(X), res(R) :-
+  X =:= 0 | io.print_line(io.stdout,string.from(R),io.free_port).
