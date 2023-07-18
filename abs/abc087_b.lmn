@@ -1,0 +1,31 @@
+/* Coins */
+
+main.
+
+main :-
+  a=integer.of_str(io.read_token(io.stdin,I1)),
+  b=integer.of_str(io.read_token(I1,I2)),
+  c=integer.of_str(io.read_token(I2,I3)),
+  x=integer.of_str(io.read_token(I3,io.free_port)),
+  cur_a(-1), cur_b(-1), cur_c(-1),
+  res(0),
+  l1.
+
+a(MA) \ l1, cur_a(A) :- A < MA, NA=A+1 |
+  l2, cur_a(NA).
+a(MA) \ l1, cur_a(A), res(R) :- A =:= MA |
+  io.print_line(io.stdout,string.from(R),io.free_port).
+
+b(MaxB) \ l2, cur_b(B) :- B < MaxB, NB=B+1 |
+  l3, cur_b(NB).
+b(MaxB) \ l2, cur_b(B) :- B =:= MaxB | 
+  l1, cur_b(-1).
+
+cur_a(A), cur_b(B), x(X) \ l3, res(R), cur_c(C) :-
+  500*A + 100*B + 50*C =:= X, NR = R+1 | 
+  l2, res(NR), cur_c(-1).
+c(MaxC), cur_a(A), cur_b(B), x(X) \ l3, cur_c(C) :-
+  500*A + 100*B + 50*C =\= X, C < MaxC, NC=C+1 |
+  l3, cur_c(NC).
+c(MaxC), cur_a(A), cur_b(B), x(X) \ l3, cur_c(C) :-
+  500*A + 100*B + 50*C =\= X, C =:= MaxC | l2, cur_c(-1).
