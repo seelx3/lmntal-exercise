@@ -1,0 +1,17 @@
+/* union find (disjoint set) */
+%%% init
+make(X) :- new($x) | n(X,$x).
+
+%%% merge
+n(X1, !H1), n(Y1, !H2) \ merge(X2,Y2)
+  :- X1=:=X2, Y1=:=Y2, !H1\=!H2 | H1><H2 .
+n(X1, !H), n(Y1, !H) \ merge(X2,Y2)
+  :- X1=:=X2, Y1=:=Y2 | .
+
+/* end of union find */
+
+%%% operations
+make(0),make(1),make(2),make(3).
+merge(0, 1).
+merge(2, 3).
+merge(0, 3).
